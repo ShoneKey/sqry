@@ -1,0 +1,8 @@
+# 该镜像需要依赖的基础镜像
+FROM maven:3.6-jdk-8
+# 将当前目录下的源码拷贝进/mvn目录
+WORKDIR /opt
+RUN git clone https://github.com/ShoneKey/sqry.git \
+&& cd sqry/ruoyi \
+&& mvn clean package
+ENTRYPOINT ['bash ry.sh start']
