@@ -2,8 +2,8 @@
 FROM maven:3.6-jdk-8
 # 选择工作目录
 WORKDIR /app
-ADD . /app \
-&& cd sqry/ruoyi \
+ADD . /app
+RUN cd sqry/ruoyi \
 && mvn clean package
 #声明对外开放8088
 EXPOSE 8088
