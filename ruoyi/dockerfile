@@ -1,11 +1,11 @@
 # 该镜像需要依赖的基础镜像
 FROM maven:3.6-jdk-8
 # 选择工作目录
+VOLUME /data/maven_lib
 WORKDIR /app
-COPY . /app
-RUN  pwd && mvn clean package
-#声明对外开放8088
-EXPOSE 8088
-CMD ['bash ry.sh start']
+ONBUILD COPY . /app
+ONBUILD  mvn clean package
+CMD chmod +x ry.sh
+CMD ["./ry.sh"，"start"]
 
 MAINTAINER haiwen
