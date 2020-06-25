@@ -1,11 +1,1 @@
-# 该镜像需要依赖的基础镜像
-FROM maven:3.6-jdk-8
-# 选择工作目录
-VOLUME /data/maven_lib
-WORKDIR /app
-ONBUILD COPY . /app
-ONBUILD  mvn clean package
-CMD chmod +x ry.sh
-CMD ["./ry.sh"，"start"]
-
-MAINTAINER haiwen
+FROM ry-base:v1
