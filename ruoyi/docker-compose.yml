@@ -6,7 +6,7 @@ services:
     command: bash -c "
         cd /app
         && mvn clean package
-        && chmod + x ry.sh
+        && chmod +x ry.sh
         && ./ry.sh start
       "
     volumes:
