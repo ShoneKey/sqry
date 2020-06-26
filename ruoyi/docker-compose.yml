@@ -16,5 +16,6 @@ services:
       - 8088:8088
 
 networks:
-  ruoyi:
-    driver: bridge
+  default:
+    external:   #使用指定的网络
+      name: ruoyi
