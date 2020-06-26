@@ -1,0 +1,20 @@
+version: '3'
+services:
+  ruoyi:
+    image: maven:3.6-jdk-8
+    container_name: ruoyi
+    command: bash -c "
+        cd /app
+        && mvn clean package
+        && chmod + x ry.sh
+        && ./ry.sh start
+      "
+    volumes:
+      - ./:/app    #源码目录挂载
+      - /root/maven_lib:/usr/share/maven/lib   #库文件目录挂载
+    ports:
+      - 8088:8088
+
+networks:
+  root-deafult:
+    driver: bridge

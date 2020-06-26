@@ -1,11 +1,11 @@
 # 该镜像需要依赖的基础镜像
 FROM maven:3.6-jdk-8
-# 选择工作目录
-VOLUME /data/maven_lib
+# 匿名卷
+VOLUME  /root/.m2/repository
 WORKDIR /app
 COPY . /app
 RUN mvn clean package
 CMD chmod +x ./ry.sh
-CMD ["bash","./ry.sh","start"]
+#CMD ["bash","./ry.sh","start"]
 
 MAINTAINER haiwen
