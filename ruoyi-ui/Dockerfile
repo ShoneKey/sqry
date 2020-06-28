@@ -7,5 +7,9 @@ COPY . /app
 WORKDIR /app
 RUN cat /etc/*-release && whoami \
     && npm config set registry http://registry.npm.taobao.org/ \
-    && npm install --unsafe-perm
-CMD npm start
+    && sudo rm -rf ~/.node-gyp \
+    && npm cache clean -f \
+    && npm install -g n \
+    && n stable \
+    && npm i --unsafe-perm
+CMD npm run dev

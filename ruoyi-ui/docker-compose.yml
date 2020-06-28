@@ -5,6 +5,7 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: ruoyi-ui
+    command: npm run dev
     ports: 
       - 80:80
     
