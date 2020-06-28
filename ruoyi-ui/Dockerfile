@@ -7,6 +7,6 @@ ENV PATH=$PATH:/opt/node-v12.14.1-linux-x64/bin
 COPY . /app
 WORKDIR /app
 RUN npm config set registry http://registry.npm.taobao.org/ \
-    && mkdir -p /app/node_modules/node-sass \
+    && npm install -g --unsafe-perm node-sass \
     && npm install 
 CMD npm start
