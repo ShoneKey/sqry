@@ -7,7 +7,7 @@ ENV PATH=$PATH:/opt/node-v12.14.1-linux-x64/bin
 COPY . /app
 WORKDIR /app
 RUN npm config set registry http://registry.npm.taobao.org/ \
-    && chown -R root:root /app/ \
-    && chmod -R 777 /app/ \
+    && mkdir -p /app/node_modules \
+    && chmod -R 777 /app/node_modules/ \
     && npm install 
 CMD npm start
