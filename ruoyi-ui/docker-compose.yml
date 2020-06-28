@@ -1,0 +1,14 @@
+version: '3'
+services: 
+  ruoyi-ui:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: ruoyi-ui
+    ports: 
+      - 80:80
+    
+networks:
+  default:
+    external:   #使用指定的网络
+      name: ruoyi
