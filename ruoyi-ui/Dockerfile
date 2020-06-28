@@ -7,7 +7,7 @@ COPY . /app
 WORKDIR /app
 RUN cat /etc/*-release && whoami \
     && npm config set registry http://registry.npm.taobao.org/ \
-    && sudo rm -rf ~/.node-gyp \
+    && rm -rf ~/.node-gyp \
     && npm cache clean -f \
     && npm install -g n \
     && n stable \
